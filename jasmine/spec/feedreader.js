@@ -76,11 +76,11 @@ $(function() {
           */
           it('toggles menu-hidden class on click of menu icon', function() {
 
-            var event = {
+            const event = {
                 type: 'click',
                 clickTest: function(){}
             }
-            var spy = spyOn(event, 'clickTest');
+            const spy = spyOn(event, 'clickTest');
             $(menuIcon).trigger(event);
             expect(document.body.classList.contains('menu-hidden')).toBe(false);
             $(menuIcon).trigger(event);
@@ -89,6 +89,19 @@ $(function() {
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function() {
+
+        let i = 0;
+
+        // beforeEach(async function() {
+        //     await loadFeed(0);
+        // });
+
+        // it('does a thing', async function() {
+        //     const result = await loadFeed(0);
+        //     console.log(result.entry);
+        //     // expect(result.entry.length).not.toBe(0);
+        // });
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -96,6 +109,15 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+
+        it('has at least one entry', function() {
+            // console.log($('.feed .entry'));
+            expect($('.feed .entry').length).not.toBe(0);
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
@@ -103,4 +125,5 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+    
 }());
