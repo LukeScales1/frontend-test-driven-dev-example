@@ -13,6 +13,9 @@ $(function() {
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
     */
+    const initialClassList = document.body.classList;
+    const defaultState = initialClassList[0];
+
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
@@ -63,8 +66,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it('is hidden by default', function() {
-            const classes = document.body.classList;
-            expect(classes.contains('menu-hidden')).toBe(true);
+            expect(defaultState).toBe('menu-hidden');
          });
 
          /* TODO: Write a test that ensures the menu changes
@@ -72,12 +74,17 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          it('toggles hidden on click of menu icon', function() {
-            if (document.body.classList.contains('menu-hidden')) {
-                menuIcon.on('click', function() {
-                    expect(document.body.classList.contains('menu-hidden')).toBe(false);
-                });
-            };
+          it('toggles menu-hidden class on click of menu icon', function() {
+
+            var event = {
+                type: 'click',
+                clickTest: function(){}
+            }
+            var spy = spyOn(event, 'clickTest');
+            $(menuIcon).trigger(event);
+            expect(document.body.classList.contains('menu-hidden')).toBe(false);
+            $(menuIcon).trigger(event);
+            expect(document.body.classList.contains('menu-hidden')).toBe(true);
         });
     });
 
