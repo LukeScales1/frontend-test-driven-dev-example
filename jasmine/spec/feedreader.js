@@ -6,9 +6,6 @@
 
 $(function() {
 
-    const initialClassList = document.body.classList;
-    const defaultState = initialClassList[0];
-
     describe('RSS Feeds', function() {
         /* Test to make sure that the allFeeds variable has been
          * defined and that it is not empty.
@@ -46,6 +43,8 @@ $(function() {
 
     describe('The menu', function() {
 
+        const initialClassList = document.body.classList;
+        const defaultState = initialClassList[0];
         const menuIcon = document.getElementsByClassName('icon-list')[0];
 
         /* Test that ensures the menu element is hidden by default. */
