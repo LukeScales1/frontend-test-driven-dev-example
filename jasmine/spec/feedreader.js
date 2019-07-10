@@ -54,15 +54,9 @@ $(function() {
 
          /* Test that ensures the menu changes visibility when the menu icon is clicked. */
           it('toggles menu-hidden class on click of menu icon', function() {
-
-            const event = {
-                type: 'click',
-                clickTest: function(){}
-            }
-            const spy = spyOn(event, 'clickTest');
-            $(menuIcon).trigger(event);
+            $(menuIcon).click()
             expect(document.body.classList.contains('menu-hidden')).toBe(false);
-            $(menuIcon).trigger(event);
+            $(menuIcon).click()
             expect(document.body.classList.contains('menu-hidden')).toBe(true);
         });
     });
