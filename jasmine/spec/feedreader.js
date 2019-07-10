@@ -49,7 +49,7 @@ $(function() {
 
         /* Test that ensures the menu element is hidden by default. */
          it('is hidden by default', function() {
-            expect(defaultState).toBe('menu-hidden');
+            expect(defaultState).contains('menu-hidden');
          });
 
 
