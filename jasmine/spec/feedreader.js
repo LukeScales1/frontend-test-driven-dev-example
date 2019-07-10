@@ -88,13 +88,13 @@ $(function() {
 
 
         beforeEach(function(done) {
-            loadFeed(0, done);
-            intialFeed = $('.feed');
-        });
-
-        beforeEach(function(done) {
-            loadFeed(1, done);
-            newFeed = $('.feed');
+            loadFeed(0, ()=>{
+                intialFeed = $('.feed')[0].innerText;
+                loadFeed(1, ()=>{
+                    newFeed = $('.feed')[0].innerText;
+                    done();
+                });
+            });
         });
 
         it('updates the feed when new feed is loaded', function() {
