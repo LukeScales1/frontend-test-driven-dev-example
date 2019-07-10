@@ -44,12 +44,11 @@ $(function() {
     describe('The menu', function() {
 
         const initialClassList = document.body.classList;
-        const defaultState = initialClassList[0];
         const menuIcon = document.getElementsByClassName('icon-list')[0];
 
         /* Test that ensures the menu element is hidden by default. */
          it('is hidden by default', function() {
-            expect(defaultState).contains('menu-hidden');
+            expect(initialClassList.contains('menu-hidden')).toBe(true);
          });
 
 
