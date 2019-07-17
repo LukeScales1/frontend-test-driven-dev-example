@@ -70,7 +70,7 @@ $(function() {
         });
 
         it('has at least one entry', function() {
-            expect($('.feed .entry').length).not.toBe(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
