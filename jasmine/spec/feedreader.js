@@ -11,8 +11,7 @@ $(function() {
          * defined and that it is not empty.
          */
         it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds).toBeTruthy();
         });
 
 
@@ -22,8 +21,7 @@ $(function() {
          */
          it('URL of each feed is defined and not empty', function() {
             for (const feed of allFeeds) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url.length).not.toBe(0);
+                expect(feed.url).toBeTruthy();
             };
          });
 
@@ -34,8 +32,7 @@ $(function() {
          */
         it('name of each feed is defined and not empty', function() {
             for (const feed of allFeeds) {
-                expect(feed.name).toBeDefined();
-                expect(feed.name.length).not.toBe(0);
+                expect(feed.name).toBeTruthy();
             };
          });
     });
